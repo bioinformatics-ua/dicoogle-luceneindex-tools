@@ -23,7 +23,6 @@ package metal.utils.dicoogle.indextools;
  */
 
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexableField;
 
@@ -113,7 +112,7 @@ public class IndexToCSV {
 				List<String> results = new ArrayList<>(labels.length);
 				for (String l : labels) {
 					IndexableField value = doc.getField(l);
-					results.add(value.stringValue());
+					results.add(StringUtils.trimToEmpty(value.stringValue()));
 				}
 				printer.printRecord(results);
 
