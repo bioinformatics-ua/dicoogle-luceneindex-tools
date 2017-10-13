@@ -34,6 +34,13 @@ import org.dcm4che3.data.ElementDictionary;
 import org.dcm4che3.data.VR;
 import org.dcm4che3.util.TagUtils;
 
+/**
+ * Unfinished and Untested.
+ * Use with caution.
+ * 
+ * @author Tiago Marques Godinho, tmgodinho@ua.pt 2017
+ *
+ */
 public class DICOMWritter {
 
 	private static final Logger logger = LogManager.getLogger(DICOMWritter.class);
