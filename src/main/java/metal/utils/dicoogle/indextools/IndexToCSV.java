@@ -112,7 +112,10 @@ public class IndexToCSV {
 				List<String> results = new ArrayList<>(labels.length);
 				for (String l : labels) {
 					IndexableField value = doc.getField(l);
-					results.add(StringUtils.trimToEmpty(value.stringValue()));
+					if(value != null)
+						results.add(StringUtils.trimToEmpty(value.stringValue()));
+					else
+						results.add("");
 				}
 				printer.printRecord(results);
 
